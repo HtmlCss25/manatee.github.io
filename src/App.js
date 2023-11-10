@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import {SongContainer} from './components/SongContainer.jsx'
+
+
+
+
+const categorySelector = document.querySelector('#categorySelector')
+
 
 function App() {
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+      <img src='./img/logo.jpg' alt="Cover de l'instrumental" />
+        <h1>Manatee production</h1>
       </header>
+      <main>
+        <SongContainer/>
+      </main>
+     <footer>
+        <ul>
+          <li>Need a custom beat ?</li>
+          <li><a href='mailto:manatee.prod@protonmail.com'>manatee.prod@protonmail.com</a></li>
+        </ul>
+     </footer>
     </div>
   );
 }

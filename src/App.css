@@ -1,38 +1,408 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #111111;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h1,
+h2,
+h3,
+img,
+span {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+header {
+  height: 250px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+header h1 {
+  color: rgb(238, 238, 238);
+  text-shadow: 0px 0px 10px #63cacf;
+  margin-left: 10px;
+  letter-spacing: 20px;
+  font-family: "Lobster", sans-serif;
+  font-style: italic;
+  font-size: 30px;
+  font-weight: 600;
+}
+header img {
+  width: 150px;
+  opacity: 1;
+  border-radius: 50%;
+  animation: glowingLogo 1.5s alternate infinite;
+}
+
+@keyframes glowingLogo {
+  from {
+    box-shadow: 0px 0px 10px 0px #63cacf;
+  }
+  to {
+    box-shadow: 0px 0px 20px 0px #63cacf;
   }
 }
+@keyframes glow {
+  from {
+    box-shadow: 0px 0px 10px 5px rgba(60, 110, 113, 0.2549019608) inset, 0px 0px 100px 50px rgba(0, 0, 0, 0.2941176471);
+  }
+  to {
+    box-shadow: 0px 0px 10px 5px rgba(60, 110, 113, 0.4941176471) inset, 0px 0px 100px 50px rgba(0, 0, 0, 0.2941176471);
+  }
+}
+.songContainer {
+  width: 100%;
+  background-color: #2a4c4e;
+  padding: 50px 0;
+  transition: box-shadow 0.5s;
+  box-shadow: 0px 0px 50px rgba(17, 17, 17, 0.5960784314) inset;
+}
+.songContainer:hover {
+  box-shadow: 0px 0px 50px #111111 inset;
+}
+.songContainer select {
+  display: block;
+  width: 35%;
+  margin: auto;
+  position: relative;
+  top: -20px;
+  text-align: center;
+  background-color: #353535;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  font-family: "Shadows Into Light", cursive;
+  color: #a4d4d6;
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 10px #2a4c4e;
+  font-size: 18px;
+  opacity: 0.8;
+}
+.songContainer select option {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #a4d4d6;
+  font-size: 15px;
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#cards {
+  width: 80%;
+  margin: auto;
+  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  transition: opacity 0.2s ease-out;
+}
+#cards:hover img {
+  opacity: 0.5;
+}
+#cards article {
+  width: 20%;
+  background-color: #353535;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px 0 10px 0;
+  border-radius: 5px;
+  transition: transform 0.2s;
+  box-shadow: 0px 0px 20px 2px #111111;
+}
+#cards article:hover img {
+  opacity: 1;
+}
+#cards article:hover h3 {
+  color: rgb(238, 238, 238);
+  text-shadow: 0px 0px 10px #63cacf;
+}
+#cards article img {
+  width: 80%;
+  margin: auto;
+  border-radius: 5px;
+  transition: opacity 0.2s;
+}
+#cards article h3 {
+  color: #63cacf;
+  font-family: "Shadows Into Light", cursive;
+  letter-spacing: 2px;
+  transition: text-shadow 0.3s, color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.greyBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.822);
+  z-index: 8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#audioPlayer {
+  z-index: 9;
+  width: 30%;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #181818;
+  box-shadow: 0px 0px 20px 5px rgba(60, 110, 113, 0.4235294118) inset, 0px 0px 100px 50px rgba(0, 0, 0, 0.2941176471);
+  border-radius: 2%;
+  animation: 1s linear 3s infinite alternate glow;
+}
+#audioPlayer h2 {
+  color: #a4d4d6;
+  text-shadow: 0px 0px 10px #63cacf;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 35px;
+  letter-spacing: 2px;
+  margin: -15px 0;
+}
+#audioPlayer .cover {
+  width: 70%;
+  height: auto;
+  padding: 20px;
+  border: 0.5px solid rgba(60, 110, 113, 0.5490196078);
+  background-color: rgba(60, 110, 113, 0.3764705882);
+  box-shadow: 0px 0px 10px 5px rgba(164, 212, 214, 0.062745098);
+  border-radius: 5px;
+}
+#audioPlayer .cover img {
+  width: 100%;
+}
+#audioPlayer .navBar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 80%;
+  border: 2px solid rgba(60, 110, 113, 0.5490196078);
+  padding: 9px;
+  border-radius: 5px;
+}
+#audioPlayer .navBar span {
+  color: rgba(164, 212, 214, 0.8);
+}
+#audioPlayer .navBar input {
+  width: 80%;
+  background-color: #181818;
+}
+#audioPlayer .navBar input::-moz-range-track {
+  background-color: #3c6e71;
+  height: 5px;
+  border-radius: 40%;
+  border: none;
+  box-shadow: 0px 0px 10px 5px rgba(164, 212, 214, 0.062745098);
+}
+#audioPlayer .navBar input::-webkit-slider-runnable-track {
+  background-color: #3c6e71;
+  height: 7px;
+  border-radius: 50%;
+}
+#audioPlayer .navBar input::-ms-track {
+  background-color: #3c6e71;
+  height: 7px;
+  border-radius: 50%;
+}
+#audioPlayer .navBar input::-moz-range-thumb {
+  background-color: #fcfcfc;
+  height: 35px;
+  width: 5px;
+  border-radius: 80%;
+  border: none;
+  opacity: 85%;
+}
+#audioPlayer .controlButtons {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#audioPlayer .controlButtons .fa-play,
+#audioPlayer .controlButtons .fa-pause,
+#audioPlayer .controlButtons .fa-forward-step,
+#audioPlayer .controlButtons .fa-backward-step {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: #3c6e71;
+  color: #a4d4d6;
+  font-size: 20px;
+  transition: transform 0.5s, box-shadow 0.5s;
+  box-shadow: 0px 0px 10px 5px rgba(164, 212, 214, 0.1294117647);
+}
+#audioPlayer .controlButtons .fa-pause {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 8px 3px rgba(164, 212, 214, 0.0392156863);
+}
+#audioPlayer .controlButtons .fa-play {
+  transform: scale(1.4);
+  box-shadow: 0px 0px 8px 3px rgba(164, 212, 214, 0.2);
+}
+#audioPlayer #volume {
+  width: 50%;
+  background-color: #181818;
+  border-radius: 40%;
+}
+#audioPlayer #volume::-moz-range-track {
+  background-color: #3c6e71;
+  height: 5px;
+  border-radius: 40%;
+  border: none;
+  opacity: 0.8;
+}
+#audioPlayer #volume::-webkit-slider-runnable-track {
+  background-color: #3c6e71;
+  height: 7px;
+  border-radius: 50%;
+}
+#audioPlayer #volume::-ms-track {
+  background-color: #3c6e71;
+  height: 7px;
+  border-radius: 50%;
+}
+#audioPlayer #volume::-moz-range-thumb {
+  background-color: rgba(164, 212, 214, 0.8);
+  border-radius: 80%;
+  border: none;
+  opacity: 85%;
+  -moz-transition: transform 0.2s, height 1s;
+  transition: transform 0.2s, height 1s;
+  box-shadow: 0px 0px 10px 5px #3c6e71;
+}
+#audioPlayer #volume:hover::-moz-range-thumb {
+  transform: scale(1.5);
+}
+#audioPlayer #volume:active::-moz-range-thumb {
+  opacity: 0.5;
+}
+#audioPlayer #loudnessIcon {
+  color: rgba(164, 212, 214, 0.7);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+}
+footer ul {
+  list-style: none;
+}
+footer ul li {
+  padding-bottom: 2rem;
+  text-align: center;
+  color: rgba(238, 238, 238, 0.795);
+  text-shadow: 0px 0px 10px #63cacf;
+  margin-left: 10px;
+  letter-spacing: 10px;
+  font-size: 16px;
+  font-family: "Lobster", sans-serif;
+  font-style: italic;
+  font-weight: 500;
+}
+footer ul li a {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: rgb(238, 238, 238);
+  font-family: "Courier New", Courier, monospace;
+}
+footer ul li a:hover {
+  color: #63cacf;
+}
+
+.isPlaying {
+  position: relative;
+  overflow: hidden;
+}
+.isPlaying:nth-child(1) {
+  filter: hue-rotate(270deg);
+}
+.isPlaying:nth-child(2) {
+  filter: hue-rotate(110deg);
+}
+.isPlaying span {
+  position: absolute;
+  display: block;
+}
+.isPlaying span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3c6e71);
+  animation: animate1 2s linear infinite;
+}
+@keyframes animate1 {
+  0% {
+    left: -100%;
   }
-  to {
-    transform: rotate(360deg);
+  50%, 100% {
+    left: 100%;
   }
 }
+.isPlaying span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #3c6e71);
+  animation: animate2 2s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%, 100% {
+    top: 100%;
+  }
+}
+.isPlaying span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #3c6e71);
+  animation: animate3 2s linear infinite;
+  animation-delay: 1s;
+}
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%, 100% {
+    right: 100%;
+  }
+}
+.isPlaying span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #3c6e71);
+  animation: animate4 2s linear infinite;
+  animation-delay: 1.5s;
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+}/*# sourceMappingURL=App.css.map */
