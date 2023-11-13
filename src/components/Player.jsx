@@ -181,6 +181,7 @@ export class Player extends React.Component{
         return (
           <div className='greyBackground' onClick={this.props.handleOutsideClick}>
             <div id='audioPlayer' onClick={this.handleAudioPlayerClick}>
+            <i class="fa-solid fa-x" onClick={this.props.handleOutsideClick}></i>
               <h2 id='playerTitle'>{this.props.title}</h2>
               <audio src={this.props.source} type={this.props.type} onEnded={this.handleEnd} onTimeUpdate={this.handleSongChange} onLoadedMetadata={this.handleLoadMeta}  id='audio'></audio>
               <div className="cover" id='cover'>
