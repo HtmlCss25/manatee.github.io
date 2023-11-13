@@ -37,7 +37,7 @@ export class SongContainer extends React.Component{
             songsToDisplay : Cards,
             cardsStyle : undefined,
             links : [
-              {dataset: "all", text: "Voir tous les genres" },
+              {dataset: "all", text: "See All" },
               {dataset: "boom_bap", text: "Boom Bap"},
               {dataset: "chill", text: "Chill"},
               {dataset: "hard", text: "Hard"},

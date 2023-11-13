@@ -473,3 +473,53 @@ footer{
         }
     }
 }
+
+@media screen and (max-width: 960px) {
+
+  h1{
+    text-align: center;
+  }
+  #cards article{
+    width: 25%;
+    text-align: center;
+  }
+
+  footer{
+    ul{
+      li{
+        a{
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+
+  header{
+    img{
+      width: 100px;
+    }
+  }
+
+  #cards article{
+    width: 80%;
+  }
+
+  footer{
+    
+    ul{
+      li{
+        a{
+          font-size: 1rem;
+          letter-spacing: 2px;
+          position: relative;
+          bottom: 10px;
+        }
+      }
+    }
+  }
+
+}
