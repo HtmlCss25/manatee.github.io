@@ -72,30 +72,38 @@ header{
   &:hover{
     box-shadow: 0px 0px 50px #111111 inset;
   }
-  select{
-    display: block;
-    width: 35%;
+  
+  .overflowHidden{
+    overflow-x: hidden;
+    width: 90%;
     margin: auto;
-    position: relative;
-    top: -20px;
-    text-align: center;
-    background-color: #353535;
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-    font-family: 'Shadows Into Light', cursive;
-    color: #a4d4d6;
-    letter-spacing: 2px;
-    text-shadow: 0px 0px 10px #2a4c4e;
-    font-size: 18px;
-    opacity: 0.8;
-    option{
-      font-family:Verdana, Geneva, Tahoma, sans-serif;
-      color:#a4d4d6;
-      font-size: 15px;
+  }
+  ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 40px;
+    width: 100%;
+    margin: auto;
+    transform: translateX(0);
+    li{
+      user-select: none;
+      color: rgb(238, 238, 238);
+      text-shadow: 0px 0px 10px #63cacf;
+      font-family: 'Lobster', sans-serif;
+      font-size: 20px;
+      width: 20%;
+      text-align: center;
+      flex: 0 0 auto;
+      transition: transform 0.5s;
+      &:nth-child(5){
+        transform: scale(1.2);
+      }
     }
   }
 }
+
 
 #cards{
   width: 80%;
@@ -111,6 +119,7 @@ header{
     }
   }
   article{
+    position: relative;
     width: 20%;
     background-color: #353535;
     display: flex;
@@ -142,7 +151,6 @@ header{
       letter-spacing: 2px;
       transition: text-shadow 0.3s , color 0.3s;
     }
-
   }
 
 }
@@ -155,6 +163,19 @@ header{
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.822);
   z-index: 8;
+  a{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    color: #63cacf;
+    &:hover{
+      color: rgb(238, 238, 238);
+      text-shadow: 0px 0px 10px #63cacf;
+    }
+  }
 }
 
 #audioPlayer{
@@ -191,7 +212,6 @@ header{
     background-color: #3c6e7160;
     box-shadow: 0px 0px 10px 5px #a4d4d610;
     border-radius: 5px;
-
     img{
       width: 100%;
     }
@@ -322,6 +342,7 @@ footer{
   display: flex;
   justify-content: center;
   padding: 30px 0;
+  position: relative;
   ul{
     list-style: none;
     li{
@@ -344,6 +365,23 @@ footer{
           color: #63cacf;
         }
       }
+    }
+  }
+  a{
+    .fa-arrow-up{
+      position: absolute;
+      right: 2%;
+      bottom: 10%;
+      color: rgba(238, 238, 238, 0.795);
+      border-radius: 30%;
+      width: 40px;
+      line-height: 35px;
+      text-align: center;
+      border: 2px solid #646464;
+      font-size: 20px;
+      &:hover{
+          background-color: #181818;
+        }
     }
   }
 }

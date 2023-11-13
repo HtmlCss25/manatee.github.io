@@ -16,6 +16,7 @@ export class Player extends React.Component{
             muted:false,
             volume:50,
             frequencies:undefined,
+            animationId :undefined,
         }
     }
 
@@ -70,10 +71,11 @@ export class Player extends React.Component{
       this.setDuration()
       this.setVolume()
       this.getFrequencies()
+      this.handlePauseBtnClick()
     }
 
     handlePauseBtnClick=()=>{
-      
+      console.log(this.state.animationId)
       const coverDiv = document.querySelector(".cover")
       if(coverDiv.classList.contains('isPlaying')){
         coverDiv.classList.remove("isPlaying")
@@ -155,7 +157,7 @@ export class Player extends React.Component{
     analyser.connect(audioContext.destination);
 
     const cover = document.getElementById("cover")
-    const title = document.getElementById("playerTitle")
+    const coverImage = document.querySelector('#coverImage')
 
     function updateFrequencyData() {
       analyser.getByteFrequencyData(frequencyData);
@@ -165,9 +167,13 @@ export class Player extends React.Component{
       //frequencyData[600] hi hats
       cover.style.boxShadow = `0px 0px ${frequencyData[0]/6}px 0px #3c6e718a, 0px 0px ${frequencyData[3]/6}px 0px #1CA8C18a, 0px 0px ${frequencyData[6]/10}px 0px #1CA8C19a, 0px 0px ${frequencyData[13]/8}px 0px #ffff007a`
       
-      requestAnimationFrame(updateFrequencyData);
+      const averageFrequency = (frequencyData[0]+frequencyData[3]+frequencyData[6])/3
+      
+      coverImage.style.opacity = `${averageFrequency/2}%`
+      
+      return requestAnimationFrame(updateFrequencyData);
     }
-    updateFrequencyData();
+    this.state.animationId = updateFrequencyData();
    }
 
 
@@ -182,7 +188,7 @@ export class Player extends React.Component{
                 <span></span> 
                 <span></span>
                 <span></span>
-                <img src={this.props.cover} alt="cover de l'instrumental"/>
+                <img src={this.props.cover} alt="cover de l'instrumental" id='coverImage'/>
               </div>
               <div className="navBar">
                 <span>{this.getMinute(this.state.time)}</span>
@@ -197,6 +203,7 @@ export class Player extends React.Component{
               <input type="range" min="0" max="100" value={this.state.volume} onChange={this.handleVolumeChange} onClick={this.handleVolumeChange} id="volume"/>
               <i className="fa-solid fa-volume-low" id="loudnessIcon" onClick={this.toggleMute}></i>
             </div>
+            <a href={this.props.source} download={`Manatee - ${this.props.title}`}>Free Download Here</a>
           </div>
           );
     }

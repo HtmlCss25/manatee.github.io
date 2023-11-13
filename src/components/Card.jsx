@@ -16,11 +16,12 @@ export class Card extends React.Component{
         document.body.style.overflow = "hidden"
     }
 
-    handleOutsideClick = (e)=>{
+    handleOutsideClick = (e,animationId)=>{
         e.stopPropagation();
         this.setState({isClicked:false},()=>{
             document.body.style.overflow = "visible"
         })
+        cancelAnimationFrame(animationId)
     }
 
     render(){
@@ -28,7 +29,9 @@ export class Card extends React.Component{
             
             <article onClick={this.handleCardClick} className='card'>
                 <img src={this.props.cover} alt="Cover de l'instrumental" />
+                
                 <h3>{this.props.title}</h3>
+                
                 {this.state.isClicked && (
                     <Player handleOutsideClick={this.handleOutsideClick} cover={this.props.cover} title={this.props.title} source={this.props.source}/>
                 )}

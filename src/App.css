@@ -70,28 +70,36 @@ header img {
 .songContainer:hover {
   box-shadow: 0px 0px 50px #111111 inset;
 }
-.songContainer select {
-  display: block;
-  width: 35%;
+.songContainer .overflowHidden {
+  overflow-x: hidden;
+  width: 90%;
   margin: auto;
-  position: relative;
-  top: -20px;
-  text-align: center;
-  background-color: #353535;
-  border: none;
-  padding: 5px;
-  border-radius: 5px;
-  font-family: "Shadows Into Light", cursive;
-  color: #a4d4d6;
-  letter-spacing: 2px;
-  text-shadow: 0px 0px 10px #2a4c4e;
-  font-size: 18px;
-  opacity: 0.8;
 }
-.songContainer select option {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #a4d4d6;
-  font-size: 15px;
+.songContainer ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 40px;
+  width: 100%;
+  margin: auto;
+  transform: translateX(0);
+}
+.songContainer ul li {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  color: rgb(238, 238, 238);
+  text-shadow: 0px 0px 10px #63cacf;
+  font-family: "Lobster", sans-serif;
+  font-size: 20px;
+  width: 20%;
+  text-align: center;
+  flex: 0 0 auto;
+  transition: transform 0.5s;
+}
+.songContainer ul li:nth-child(5) {
+  transform: scale(1.2);
 }
 
 #cards {
@@ -107,6 +115,7 @@ header img {
   opacity: 0.5;
 }
 #cards article {
+  position: relative;
   width: 20%;
   background-color: #353535;
   display: flex;
@@ -146,6 +155,19 @@ header img {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.822);
   z-index: 8;
+}
+.greyBackground a {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Courier New", Courier, monospace;
+  text-decoration: none;
+  color: #63cacf;
+}
+.greyBackground a:hover {
+  color: rgb(238, 238, 238);
+  text-shadow: 0px 0px 10px #63cacf;
 }
 
 #audioPlayer {
@@ -299,6 +321,7 @@ footer {
   display: flex;
   justify-content: center;
   padding: 30px 0;
+  position: relative;
 }
 footer ul {
   list-style: none;
@@ -323,6 +346,21 @@ footer ul li a {
 }
 footer ul li a:hover {
   color: #63cacf;
+}
+footer a .fa-arrow-up {
+  position: absolute;
+  right: 2%;
+  bottom: 10%;
+  color: rgba(238, 238, 238, 0.795);
+  border-radius: 30%;
+  width: 40px;
+  line-height: 35px;
+  text-align: center;
+  border: 2px solid #646464;
+  font-size: 20px;
+}
+footer a .fa-arrow-up:hover {
+  background-color: #181818;
 }
 
 .isPlaying {
