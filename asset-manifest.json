@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.c3702658.css",
-    "main.js": "/react-gh-pages/static/js/main.3682aef8.js",
-    "static/js/787.f9205554.chunk.js": "/react-gh-pages/static/js/787.f9205554.chunk.js",
-    "index.html": "/react-gh-pages/index.html",
-    "main.c3702658.css.map": "/react-gh-pages/static/css/main.c3702658.css.map",
-    "main.3682aef8.js.map": "/react-gh-pages/static/js/main.3682aef8.js.map",
-    "787.f9205554.chunk.js.map": "/react-gh-pages/static/js/787.f9205554.chunk.js.map"
+    "main.css": "/manatee.github.io/static/css/main.c3702658.css",
+    "main.js": "/manatee.github.io/static/js/main.bd107958.js",
+    "static/js/787.f9205554.chunk.js": "/manatee.github.io/static/js/787.f9205554.chunk.js",
+    "index.html": "/manatee.github.io/index.html",
+    "main.c3702658.css.map": "/manatee.github.io/static/css/main.c3702658.css.map",
+    "main.bd107958.js.map": "/manatee.github.io/static/js/main.bd107958.js.map",
+    "787.f9205554.chunk.js.map": "/manatee.github.io/static/js/787.f9205554.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c3702658.css",
-    "static/js/main.3682aef8.js"
+    "static/js/main.bd107958.js"
   ]
 }
